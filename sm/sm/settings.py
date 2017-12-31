@@ -24,7 +24,7 @@ SECRET_KEY = 'u(13)d5&3^2x=j^#q4eh*m$_xc=d9d25ovfue4pbi!p6t%fxe-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.107',]
 
 
 # Application definition
@@ -79,8 +79,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'NAME': 'sm', # 数据库名称
-        'USER': 'sm', # 数据库用户名
-        'PASSWORD': 'sm123456', # 数据库密码
+        'USER': 'root', # 数据库用户名
+        'PASSWORD': 'root1234', # 数据库密码
         'PORT': '5432',
     }
 }
