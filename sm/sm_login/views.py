@@ -9,4 +9,4 @@ def test1(request, id1):
 
 # 用户登陆
 def login(request):
-    return render(request, '/templates/sm_login/login.html')
+    return render(request, 'sm_login/login.html')
