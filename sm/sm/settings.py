@@ -81,6 +81,7 @@ DATABASES = {
         'NAME': 'sm', # 数据库名称
         'USER': 'root', # 数据库用户名
         'PASSWORD': 'root1234', # 数据库密码
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
