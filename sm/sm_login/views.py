@@ -6,3 +6,7 @@ def register(request):
 
 def test1(request, id1):
 	return HttpResponse('test1=%s'%id1)
+
+# 用户登陆
+def login(request):
+    return render(request, '/templates/sm_login/login.html')
