@@ -27,6 +27,8 @@
 </style>
 <script>
     $(function(){
+        var pwd = "";
+        var pwd2 = "";
         $(".tab li").each(function(i){
             $(this).click(function(){
                 $(this).addClass("on").siblings().removeClass("on");
@@ -44,8 +46,8 @@
             }
         });
         
-        var pwd = $("#b_pwd").val();
         $("#b_pwd").blur(function() {
+            pwd = $("#b_pwd").val();
             var pwd_len = pwd.length;
             if(pwd_len == 0) {
                 layer.msg("密码不能为空!");
@@ -56,8 +58,8 @@
             }
         });
 
-        var pwd2 = $("#b_pwd2").val();
         $("#b_pwd2").blur(function() {
+            pwd2 = $("#b_pwd2").val();
             var pwd2_len = pwd2.length;
             if(pwd2_len == 0) {
                 layer.msg("重复密码不能为空!");
