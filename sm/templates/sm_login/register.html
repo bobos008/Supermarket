@@ -60,6 +60,7 @@
         });
 
         $("#b_pwd2").blur(function() {
+            pwd = $("#b_pwd").val();
             pwd2 = $("#b_pwd2").val();
             var pwd2_len = pwd2.length;
             if(pwd2_len == 0) {
@@ -98,6 +99,7 @@
         });
 
         $("#s_pwd2").blur(function() {
+            pwd = $("#s_pwd").val();
             s_pwd2 = $("#s_pwd2").val();
             var s_pwd2_len = s_pwd2.length;
             if(s_pwd2_len == 0) {
