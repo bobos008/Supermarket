@@ -6,6 +6,7 @@
 <link href="/static/css/base.css" rel="stylesheet" type="text/css">
 <link href="/static/css/css.css" rel="stylesheet" type="text/css">
 <script src="/static/js/jquery-2.1.1.min.js"></script>
+<script src="/static/layer/layer.js"></script>
 <style>
 .tab {
 	overflow: hidden;
@@ -33,7 +34,12 @@
             })
         });
         $("#username").blur(function(){
-            alert(1243);
+            var username = $("#username").val();
+            if(username.length == 0) {
+                layer.msg("用户名不能为空！");
+            } else if(username.length >= 32) {
+                layer.msg("用户名长度不能超过32个字符！");
+            }
         });
     })
 </script>
