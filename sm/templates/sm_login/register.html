@@ -98,8 +98,7 @@
         });
 
         $("#s_pwd2").blur(function() {
-            s_pwd2 = $("#b_pwd2").val();
-            alert(s_pwd2);
+            s_pwd2 = $("#s_pwd2").val();
             var s_pwd2_len = s_pwd2.length;
             if(s_pwd2_len == 0) {
                 layer.msg("重复密码不能为空!");
