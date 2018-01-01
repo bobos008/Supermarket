@@ -87,7 +87,7 @@
         
         $("#s_pwd").blur(function() {
             s_pwd = $("#s_pwd").val();
-            var s_pwd_len = pwd.length;
+            var s_pwd_len = s_pwd.length;
             if(s_pwd_len == 0) {
                 layer.msg("密码不能为空!");
                 return false
@@ -99,7 +99,7 @@
 
         $("#s_pwd2").blur(function() {
             s_pwd2 = $("#b_pwd2").val();
-            var s_pwd2_len = pwd2.length;
+            var s_pwd2_len = s_pwd2.length;
             if(s_pwd2_len == 0) {
                 layer.msg("重复密码不能为空!");
                 return false
