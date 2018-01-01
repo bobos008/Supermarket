@@ -37,10 +37,39 @@
             var username = $("#username").val();
             if(username.length == 0) {
                 layer.msg("用户名不能为空！");
+                return false;
             } else if(username.length >= 32) {
                 layer.msg("用户名长度不能超过32个字符！");
+                return false
             }
         });
+        
+        var pwd = $("#pwd").val();
+        $("#pwd").blur(function() {
+            var pwd_len = pwd.length;
+            if(pwd_len == 0) {
+                layer.msg("密码不能为空!");
+                return false
+            } else if(pwd_len >= 6) {
+                layer.msg("密码不能少于6位！");
+                return false;
+            }
+        });
+
+        var pwd2 = $("#pwd2").val();
+        $("#pwd2").blur(function() {
+            var pwd2_len = pwd2.length;
+            if(pwd2_len == 0) {
+                layer.msg("密码不能为空!");
+                return false
+            } else if(pwd2_len >= 6) {
+                layer.msg("密码不能少于6位！");
+                return false;
+            } else if(pwd2 != pwd) {
+                layer.msg("两次密码不一样");
+            }
+        });
+
     })
 </script>
 </head>
