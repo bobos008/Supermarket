@@ -25,14 +25,17 @@
 }
 </style>
 <script>
-$(function(){
-	$(".tab li").each(function(i){
-		$(this).click(function(){
-		$(this).addClass("on").siblings().removeClass("on");
-		$(".conlist .conbox").eq(i).show().siblings().hide();
-		})
-	})
-})
+    $(function(){
+        $(".tab li").each(function(i){
+            $(this).click(function(){
+                $(this).addClass("on").siblings().removeClass("on");
+                $(".conlist .conbox").eq(i).show().siblings().hide();
+            })
+        });
+        $("#username").blur(function(){
+            alert(1243);
+        });
+    })
 </script>
 </head>
 
@@ -57,13 +60,13 @@ $(function(){
         <div class="conlist">
             <div class="conbox" style="display:block;">
                 <p>
-                    <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser"></div>
+                    <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" id="username"></div>
                 </p>
                 <p>
-                   <div class="fl res-text">密码：</div><div><input type="password" class="loginuser"></div>
+                   <div class="fl res-text">密码：</div><div><input type="password" class="loginuser" id="pwd"></div>
                 </p>
                 <p>
-                   <div class="fl res-text">确认密码：</div><div><input type="password" class="loginuser"></div>
+                   <div class="fl res-text">确认密码：</div><div><input type="password" class="loginuser" id="pwd2"></div>
                 </p>
                 <p>
                    <div class="fl res-text">验证码：</div>
@@ -77,13 +80,13 @@ $(function(){
             </div>
             <div class="conbox">
             	<p>
-                    <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser"></div>
+                    <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" id="username"></div>
                 </p>
                 <p>
-                   <div class="fl res-text">密码：</div><div><input type="password" class="loginuser"></div>
+                   <div class="fl res-text">密码：</div><div><input type="password" class="loginuser" id="pwd"></div>
                 </p>
                 <p>
-                   <div class="fl res-text">确认密码：</div><div><input type="password" class="loginuser"></div>
+                   <div class="fl res-text">确认密码：</div><div><input type="password" class="loginuser" id="pwd2"></div>
                 </p>
                 <p>
                    <div class="fl res-text">验证码：</div>
