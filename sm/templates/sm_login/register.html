@@ -52,7 +52,7 @@
             if(pwd_len == 0) {
                 layer.msg("密码不能为空!");
                 return false
-            } else if(pwd_len >= 6) {
+            } else if(pwd_len <= 6) {
                 layer.msg("密码不能少于6位！");
                 return false;
             }
@@ -64,7 +64,7 @@
             if(pwd2_len == 0) {
                 layer.msg("重复密码不能为空!");
                 return false
-            } else if(pwd2_len >= 6) {
+            } else if(pwd2_len <= 6) {
                 layer.msg("重复密码不能少于6位！");
                 return false;
             } else if(pwd2 != pwd) {
