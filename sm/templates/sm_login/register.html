@@ -60,10 +60,10 @@
         $("#pwd2").blur(function() {
             var pwd2_len = pwd2.length;
             if(pwd2_len == 0) {
-                layer.msg("密码不能为空!");
+                layer.msg("重复密码不能为空!");
                 return false
             } else if(pwd2_len >= 6) {
-                layer.msg("密码不能少于6位！");
+                layer.msg("重复密码不能少于6位！");
                 return false;
             } else if(pwd2 != pwd) {
                 layer.msg("两次密码不一样");
