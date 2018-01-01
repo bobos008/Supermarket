@@ -29,6 +29,7 @@
     $(function(){
         var pwd = "";
         var pwd2 = "";
+        var s_pwd2 = "";
         $(".tab li").each(function(i){
             $(this).click(function(){
                 $(this).addClass("on").siblings().removeClass("on");
@@ -72,6 +73,43 @@
             }
         });
 
+        // 卖家空值判断
+        $("#s_username").blur(function(){
+            s_username = $("#s_username").val();
+            if(s_username.length == 0) {
+                layer.msg("用户名不能为空！");
+                return false;
+            } else if(s_username.length >= 32) {
+                layer.msg("用户名长度不能超过32个字符！");
+                return false
+            }
+        });
+        
+        $("#s_pwd").blur(function() {
+            s_pwd = $("#s_pwd").val();
+            var s_pwd_len = pwd.length;
+            if(s_pwd_len == 0) {
+                layer.msg("密码不能为空!");
+                return false
+            } else if(s_pwd_len <= 6) {
+                layer.msg("密码不能少于6位！");
+                return false;
+            }
+        });
+
+        $("#s_pwd2").blur(function() {
+            s_pwd2 = $("#b_pwd2").val();
+            var s_pwd2_len = pwd2.length;
+            if(s_pwd2_len == 0) {
+                layer.msg("重复密码不能为空!");
+                return false
+            } else if(s_pwd2_len <= 6) {
+                layer.msg("重复密码不能少于6位！");
+                return false;
+            } else if(s_pwd2 != pwd) {
+                layer.msg("两次密码不一样");
+            }
+        });
     })
 </script>
 </head>
