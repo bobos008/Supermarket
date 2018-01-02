@@ -139,13 +139,13 @@
                 <form action="/register/" method="post">
                     {% csrf_token %}
                     <p>
-                        <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" id="b_username"></div>
+                        <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" name="b_username" id="b_username"></div>
                     </p>
                     <p>
-                    <div class="fl res-text">密码：</div><div><input type="password" class="loginuser" id="b_pwd"></div>
+                    <div class="fl res-text">密码：</div><div><input type="password" class="loginuser" id="b_pwd" name="b_pwd"></div>
                     </p>
                     <p>
-                    <div class="fl res-text">确认密码：</div><div><input type="password" class="loginuser" id="b_pwd2"></div>
+                    <div class="fl res-text">确认密码：</div><div><input type="password" class="loginuser" id="b_pwd2" name="b_pwd2"></div>
                     </p>
                     <p>
                     <div class="fl res-text">验证码：</div>
