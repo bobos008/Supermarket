@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-
+from hashlib import sha1
 # Create your views here.
 def test1(request, id1):
 	return HttpResponse('test1=%s'%id1)
@@ -13,9 +13,21 @@ def register(request):
     if now_method == 'GET':
         return render(request, 'sm_login/register.html')
     else:
-        username = request.POST.get('b_username')
-        pwd = request.POST.get('b_pwd')
         is_seller = request.POST.get('is_seller')
+
+        # 对秘密进行加密
+        s1 = sha1()
+        if is_seller == '0':
+            username = request.POST.get('b_username')
+            pwd = request.POST.get('b_pwd')
+            s1.update(pwd)
+            s1_pwd = s1.hexdigest()
+        else:
+            username = request.POST.get('s_username')
+            pwd = request.POST('s_pwd')
+            s1.update(pwd)
+            s1_pwd = s1.hexdigest()
+        print(s1_pwd)
         print(username)
         print(pwd)
         print(is_seller)
