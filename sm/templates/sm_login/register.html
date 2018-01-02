@@ -34,10 +34,6 @@
             $(this).click(function(){
                 $(this).addClass("on").siblings().removeClass("on");
                 $(".conlist .conbox").eq(i).show().siblings().hide();
-                var indexs = $(this).index();
-                if(indexs == 0) {
-
-                }
             })
         });
         $("#b_username").blur(function(){
