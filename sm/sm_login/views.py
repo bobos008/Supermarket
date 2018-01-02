@@ -15,8 +15,10 @@ def register(request):
     else:
         username = request.POST.get('b_username')
         pwd = request.POST.get('b_pwd')
+        is_seller = request.POST.get('is_seller')
         print(username)
         print(pwd)
+        print(is_seller)
         return redirect('/login/')
 
 # 用户登陆

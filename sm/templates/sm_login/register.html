@@ -34,7 +34,10 @@
             $(this).click(function(){
                 $(this).addClass("on").siblings().removeClass("on");
                 $(".conlist .conbox").eq(i).show().siblings().hide();
-                alert($(this).index());
+                var indexs = $(this).index();
+                if(indexs == 0) {
+
+                }
             })
         });
         $("#b_username").blur(function(){
@@ -139,6 +142,7 @@
             <div class="conbox" style="display:block;">
                 <form action="/register/" method="post">
                     {% csrf_token %}
+                    <input type="hidden" name="is_seller" value="0">
                     <p>
                         <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" name="b_username" id="b_username"></div>
                     </p>
@@ -162,6 +166,7 @@
             <div class="conbox">
                 <form action="/register/" method="post">
                     {% csrf_token %}
+                    <input type="hidden" name="is_seller" value="0">
                     <p>
                         <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" id="s_username" name="s_username"></div>
                     </p>
