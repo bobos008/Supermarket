@@ -6,6 +6,9 @@ def test1(request, id1):
 
 # 用户注册
 def register(request):
+    # b_username = request.POST.get('b_username')
+    print("=====================register")
+    print(request.method)
     return render(request, 'sm_login/register.html')
 
 # 用户登陆
