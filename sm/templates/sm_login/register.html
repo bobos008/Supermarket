@@ -162,7 +162,7 @@
             <div class="conbox">
                 <form action="/register/" method="post">
                     {% csrf_token %}
-                    <input type="hidden" name="is_seller" value="0">
+                    <input type="hidden" name="is_seller" value="1">
                     <p>
                         <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" id="s_username" name="s_username"></div>
                     </p>
