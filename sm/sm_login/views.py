@@ -17,7 +17,7 @@ def register(request):
         pwd = request.POST.get('b_pwd')
         print(username)
         print(pwd)
-        return redirect(request, '/login/')
+        return redirect('/login/')
 
 # 用户登陆
 def login(request):
