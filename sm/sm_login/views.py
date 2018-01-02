@@ -9,7 +9,14 @@ def register(request):
     # b_username = request.POST.get('b_username')
     print("=====================register")
     print(request.method)
-    return render(request, 'sm_login/register.html')
+    now_method = request.method
+    if now_method == 'GET':
+        return render(request, 'sm_login/register.html')
+    else:
+        username = request.POST.get('b_username')
+        pwd = request.POST.get('b_pwd')
+        print(username)
+        print(pwd)
 
 # 用户登陆
 def login(request):
