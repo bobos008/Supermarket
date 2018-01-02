@@ -34,6 +34,7 @@
             $(this).click(function(){
                 $(this).addClass("on").siblings().removeClass("on");
                 $(".conlist .conbox").eq(i).show().siblings().hide();
+                alert($(this).index());
             })
         });
         $("#b_username").blur(function(){
@@ -159,15 +160,16 @@
                 </form>
             </div>
             <div class="conbox">
-                <form action="" method="post">
+                <form action="/register/" method="post">
+                    {% csrf_token %}
                     <p>
-                        <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" id="s_username"></div>
+                        <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" id="s_username" name="s_username"></div>
                     </p>
                     <p>
-                    <div class="fl res-text">密码：</div><div><input type="password" class="loginuser" id="s_pwd"></div>
+                    <div class="fl res-text">密码：</div><div><input type="password" class="loginuser" id="s_pwd" name="s_pwd"></div>
                     </p>
                     <p>
-                    <div class="fl res-text">确认密码：</div><div><input type="password" class="loginuser" id="s_pwd2"></div>
+                    <div class="fl res-text">确认密码：</div><div><input type="password" class="loginuser" id="s_pwd2" name="s_pwd2"></div>
                     </p>
                     <p>
                     <div class="fl res-text">验证码：</div>
