@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from hashlib import sha1
-from models import Seller, Buyer
+from .models import Seller, Buyer
 
 
 # Create your views here.
@@ -27,9 +27,13 @@ def register(request):
             s1_pwd = s1.hexdigest()
             buyer_info = {
                 'b_name' : username,
-                'b_password' : pwd
+                'b_password' : s1_pwd
             }
-            Buyer.objects.create(**buyer_info)
+            try:
+                Buyer.objects.create(**buyer_info)
+            except:
+                return 
+            
         else:
             username = request.POST.get('s_username')
             pwd = request.POST('s_pwd').encode("utf-8")
@@ -37,7 +41,7 @@ def register(request):
             s1_pwd = s1.hexdigest()
             seller_info = {
                 's_name' : username,
-                'b_password' : pwd,
+                'b_password' : s1_pwd,
             }
             Seller.objects.create(**seller_info)
 
@@ -47,6 +51,8 @@ def register(request):
         print(pwd)
         print(is_seller)
         return redirect('/login/')
+
+
 
 # 用户登陆
 def login(request):
