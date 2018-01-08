@@ -19,12 +19,12 @@ def register(request):
         s1 = sha1()
         if is_seller == '0':
             username = request.POST.get('b_username')
-            pwd = request.POST.get('b_pwd')
+            pwd = request.POST.get('b_pwd').encode("utf-8")
             s1.update(pwd)
             s1_pwd = s1.hexdigest()
         else:
             username = request.POST.get('s_username')
-            pwd = request.POST('s_pwd')
+            pwd = request.POST('s_pwd').encode("utf-8")
             s1.update(pwd)
             s1_pwd = s1.hexdigest()
         print(s1_pwd)
