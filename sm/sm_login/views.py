@@ -1,5 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect
 from hashlib import sha1
+from models import Seller, Buyer
+
+
 # Create your views here.
 def test1(request, id1):
 	return HttpResponse('test1=%s'%id1)
@@ -22,11 +25,23 @@ def register(request):
             pwd = request.POST.get('b_pwd').encode("utf-8")
             s1.update(pwd)
             s1_pwd = s1.hexdigest()
+            buyer_info = {
+                'b_name' : username,
+                'b_password' : pwd
+            }
+            Buyer.objects.create(**buyer_info)
         else:
             username = request.POST.get('s_username')
             pwd = request.POST('s_pwd').encode("utf-8")
             s1.update(pwd)
             s1_pwd = s1.hexdigest()
+            seller_info = {
+                's_name' : username,
+                'b_password' : pwd,
+            }
+            Seller.objects.create(**seller_info)
+
+
         print(s1_pwd)
         print(username)
         print(pwd)
