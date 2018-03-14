@@ -43,7 +43,15 @@
                 return false;
             } else if(username.length >= 32) {
                 layer.msg("用户名长度不能超过32个字符！");
-                return false
+                return falsee
+            } else {
+                var is_seller = $(".is_buyer").val();
+                $.get('/username_is_repeat/',{username: username, is_seller: is_seller}, function(res) {
+                    if(res.data) {
+                        layer.msg("该用户名已经被使用了！");
+                        return false;
+                    } 
+                });
             }
         });
         
@@ -54,7 +62,7 @@
                 layer.msg("密码不能为空!");
                 return false
             } else if(pwd_len < 3) {
-                layer.msg("密码不能少于6位！");
+                layer.msg("密码不能少于3位！");
                 return false;
             }
         });
@@ -67,7 +75,7 @@
                 layer.msg("重复密码不能为空!");
                 return false
             } else if(pwd2_len < 3) {
-                layer.msg("重复密码不能少于6位！");
+                layer.msg("重复密码不能少于3位！");
                 return false;
             } else if(pwd2 != pwd) {
                 layer.msg("两次密码不一样");
@@ -83,6 +91,14 @@
             } else if(s_username.length > 32) {
                 layer.msg("用户名长度不能超过32个字符！");
                 return false
+            } else {
+                is_seller = $(".is_seller").val();
+                $.get('/username_is_repeat/',{username: s_username, is_seller: is_seller}, function(res) {
+                    if(res.data) {
+                        layer.msg("该用户名已经被使用了！");
+                        return false;
+                    } 
+                });
             }
         });
         
@@ -138,7 +154,7 @@
             <div class="conbox" style="display:block;">
                 <form action="/register/" method="post">
                     {% csrf_token %}
-                    <input type="hidden" name="is_seller" value="0">
+                    <input type="hidden" name="is_seller" class="is_buyer" value="0">
                     <p>
                         <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" name="b_username" id="b_username"></div>
                     </p>
@@ -162,7 +178,7 @@
             <div class="conbox">
                 <form action="/register/" method="post">
                     {% csrf_token %}
-                    <input type="hidden" name="is_seller" value="1">
+                    <input type="hidden" name="is_seller" class="is_seller" value="1">
                     <p>
                         <div class="fl res-text">用户名：</div><div><input type="text" class="loginuser" id="s_username" name="s_username"></div>
                     </p>

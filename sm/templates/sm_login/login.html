@@ -6,6 +6,7 @@
 <link href="/static/css/base.css" rel="stylesheet" type="text/css">
 <link href="/static/css/css.css" rel="stylesheet" type="text/css">
 <script src="/static/js/jquery-2.1.1.min.js"></script>
+<script src="/static/layer/layer.js"></script>
 <style>
 .tab {
 	overflow: hidden;
@@ -25,14 +26,40 @@
 }
 </style>
 <script>
-$(function(){
-	$(".tab li").each(function(i){
-		$(this).click(function(){
-		$(this).addClass("on").siblings().removeClass("on");
-		$(".conlist .conbox").eq(i).show().siblings().hide();
-		})
-	})
-})
+    $(function(){
+        var now_li = 0;
+        $(".tab li").each(function(i){
+            $(this).click(function(){
+                now_li = $(this).index();
+                $(this).addClass("on").siblings().removeClass("on");
+                $(".conlist .conbox").eq(i).show().siblings().hide();
+            })
+        });
+        $('.loginbtn').click(function() {
+            if(now_li == 0) {
+                username = $('.b_user').val();
+                pwd = $('.b_pwd').val();
+                is_buyer = $('.is_buyer').val();
+            } else {
+                username = $('.s_user').val();
+                pwd = $('.s_pwd').val();
+                is_buyer = $('.is_seller').val();
+            }
+            $.get('/is_login/', {username: username, pwd: pwd, is_buyer: is_buyer}, function(res) {
+                console.log(res);
+                if(res.data == '0') {
+                    layer.msg("用户名错误！");
+                    return false;
+                } else if(res.data == '1') {
+                    layer.msg("密码错误！");
+                    return false;
+                } else {
+                    location.href = "/test1/"
+                }
+            });
+
+        });
+    })
 </script>
 </head>
 
@@ -57,25 +84,27 @@ $(function(){
         </div>
         <div class="conlist">
             <div class="conbox" style="display:block;">
+                <input type="hidden" name="is_buyer" class="is_buyer" value="0">
                 <p>
-                    <input type="text" class="loginusername">
+                    <input type="text" class="loginusername b_user">
                 </p>
                 <p>
-                    <input type="password" class="loginuserpassword">
+                    <input type="password" class="loginuserpassword b_pwd">
                 </p>
-                <p><span class="fl fntz14 margin-t10"><a href="#" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
+                <p><span class="fl fntz14 margin-t10"><a href="/register/" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
                 <p>
                     <input type="button" class="loginbtn" value="登  录">
                 </p>
             </div>
             <div class="conbox">
+                <input type="hidden" name="is_seller"  class="is_seller" value="1">
             	<p>
-                    <input type="text" class="loginusername">
+                    <input type="text" class="loginusername s_user">
                 </p>
                 <p>
-                    <input type="password" class="loginuserpassword">
+                    <input type="password" class="loginuserpassword s_pwd">
                 </p>
-                <p><span class="fl fntz14 margin-t10"><a href="#" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
+                <p><span class="fl fntz14 margin-t10"><a href="/register/" style="color:#ff6000">立即注册</a></span><span class="fr fntz12 margin-t10"><a href="#">忘记密码？</a></span></p>
                 <p>
                     <input type="button" class="loginbtn" value="登  录">
                 </p>
